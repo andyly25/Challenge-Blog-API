@@ -1,0 +1,29 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "build CRUD api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birisora/Challenge-Blog-API.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/birisora/Challenge-Blog-API/issues"
+  },
+  "homepage": "https://github.com/birisora/Challenge-Blog-API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "uuid": "^3.3.2"
+  },
+  "engines": {
+    "node": "4.4.3"
+  }
+}
