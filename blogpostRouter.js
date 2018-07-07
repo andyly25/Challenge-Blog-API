@@ -32,7 +32,8 @@ router.get('/', (req, res) => {
 // if okay, adds in the new item with 201
 router.post('/', jsonParser, (req, res) => {
   // note blogpost takes in title, content, author, publishDate
-  const requiredFields = ['title', 'content', 'author', 'publishDate'];
+  // since publishDate is optional, it will not be a requiredField
+  const requiredFields = ['title', 'content', 'author'];
   for (let i = 0; i < requiredFields.length; i += 1) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -44,13 +45,6 @@ router.post('/', jsonParser, (req, res) => {
   const item = BlogPosts.create(req.body.title, req.body.content, 
                                 req.body.author, req.body.publishDate);
   res.status(201).json(item);
-});
-
-// DELETE by id
-router.delete('/:id', (req, res) => {
-  BlogPosts.delete(req.params.id);
-  console.log(`Deleted blog post item \`${req.params.ID}\``);
-  res.status(204).end();
 });
 
 // PUT request comes in with updated blog post
@@ -84,6 +78,13 @@ router.put('/:id', jsonParser, (req, res) => {
     author: req.body.author,
     publishDate: req.body.publishDate
   });
+  res.status(204).end();
+});
+
+// DELETE by id
+router.delete('/:id', (req, res) => {
+  BlogPosts.delete(req.params.id);
+  console.log(`Deleted blog post item \`${req.params.ID}\``);
   res.status(204).end();
 });
 
