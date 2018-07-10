@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: JWnYVF/8L5VM7HUP/stE/mO1LyZ8xgbB8CE5VwjFIcZj5U/lQ41WTaQ31+5ggWowAezzwsjx95285/03m6atTdbo60uRmWQteY3Gdp1iYBxT1GcDcbaZnPXce/4Hcrji2YrFzoQadFwo/qEBfP7k4JN4X4qDX9olA7HOEARo6GaOG0xa7O+UFuWsqqqN6uIxEkezN2xOdlybwqfhXx3TDMks/fUnJiLP/fWWPk7MuLNmluXYUtwt9zhf8rQT0l6IUrTA0D2duC4K8jgd3KBK7DTfSCHqV2cxlahZ+Fz/2TY0Si9Oi3jI+XK0Lg+uF6Z981oyO2zuPX8q/O+6Bf5/QgEjyw/dK9K3XptIyWAAscWveRThYZlmKGO8bGM+tynW+kBslFXjIMUPYzjfHqUo1+MryMP4jmhqSUhmKzH25+/9O+ID5w0YzQLZ2kci1fG73POaEDsQQe/nXOu3WPzo8RDVCaYSjycX5pBH1O4QpKa5fC4a3PX/sXE+kOJm/BQs+7EZaen4TOOSFXWAq+M/u2GZBQfkO50VajN3QtGiHI/TarlV59FJ9kjmerNpur1KfS3+oLlM7tBXkTCiFmZ94IJgtbBWrPsVfjY5hGYvBz4WgMv7t8vTOY5wwFxpo0HbG27otbktEGDdaHDnQS/pQK/Ek4Q/WnZ+mfQ8CwR5Z5U=
+  app: andy-tests-ci-blogg
+  on:
+    repo: birisora/Challenge-Blog-API
