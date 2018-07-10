@@ -60,4 +60,35 @@ describe('Blog posts', function () {
       });
   });
 
+  // init some update data
+  // make a GET req so we can get item to update
+  // add id to update data
+  // inspect res to make sure right status code and get back correct item
+  it('should update items on PUT', function () {
+    const updateData = {
+      title: 'Sleep Deprivation',
+      content: 'How to get a good night\'s sleep',
+      author: 'Sandman',
+      publishDate: '1600'
+    };
+
+    return (
+      chai
+        .request(app)
+        .get('/blog-posts')
+        .then(function (res) {
+          updateData.id = res.body[0].id;
+          // return a promise whose value be res obj, inspeced in next .then
+          return chai
+            .request(app)
+            .put(`/blog-posts/${updateData.id}`)
+            .send(updateData);
+        })
+        // prove PUT has right status then return updated item
+        .then(function (res) {
+          expect(res).to.have.status(204);
+        })
+    );
+  });
+
 });
