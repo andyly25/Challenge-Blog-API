@@ -91,4 +91,20 @@ describe('Blog posts', function () {
     );
   });
 
+  // DELETE: GET shop list item to get id of one to delete
+  // delete item and get back a status 204
+  it('should delete posts on DELETE', function () {
+    return (
+      chai
+        .request(app)
+        // use GET so we have id of item
+        .get('/blog-posts')
+        .then(function (res) {
+          return chai.request(app).delete(`/blog-posts/${res.body[0].id}`);
+        })
+        .then(function (res) {
+          expect(res).to.have.status(204);
+        })
+    );
+  });
 });
