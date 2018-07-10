@@ -230,7 +230,7 @@ $(function() {
   // handleShoppingListDelete();
   // handleShoppingCheckedToggle();
 
-  getAndDisplayRecipes();
+  getAndDisplayBlogPosts();
   
   // getAndDisplayRecipes();
   // handleRecipeAdd();
