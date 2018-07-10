@@ -37,4 +37,27 @@ describe('Blog posts', function () {
         });
       })
   });
+
+  // POST: make a post with data for new item
+  // inspect res and prove has right status code and data
+  it('should add an item on POST', function () {
+    // ['title', 'content', 'author', 'publishDate']
+    const newItem = {title: 'The Light', content: 'going into the light', author: 'Anon', publishDate: 2018};
+    return chai
+      .request(app)
+      .post('/blog-posts')
+      .send(newItem)
+      .then(function (res) {
+        expect(res).to.have.status(201);
+        expect(res).to.be.json;
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.include.keys('id', 'title', 'content', 'author', 'publishDate');
+        expect(res.body.id).to.not.equal(null);
+        // res should be deep equal to newItem if assign id from res.body.id
+        expect(res.body).to.deep.equal(
+          Object.assign(newItem, { id: res.body.id })
+        );
+      });
+  });
+
 });
