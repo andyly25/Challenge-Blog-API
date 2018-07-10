@@ -7,13 +7,7 @@ const blogpostRouter = require('./blogpostRouter');
 // log http layer
 app.use(morgan('common'));
 // if we wanted css and etc we can change to express.static('public')
-// app.use(express.json());
-app.use(express.static("public"));
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
-});
-
+app.use(express.json());
 app.use('/blog-posts', blogpostRouter);
 
 // both runServer and closeServer access same server obj
